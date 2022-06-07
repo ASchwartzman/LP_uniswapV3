@@ -85,7 +85,7 @@ async function main() {
     137,
     immutables.token1,
     18,
-    "UNI",
+    "UNI2",
     "Uniswap Protocol"
   );
 
