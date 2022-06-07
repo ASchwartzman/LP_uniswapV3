@@ -2,9 +2,11 @@ import { ethers } from "ethers";
 import { Pool } from "@uniswap/v3-sdk";
 import { Token } from "@uniswap/sdk-core";
 import { abi as IUniswapV3PoolABI } from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
+import "dotenv/config";
 
-const provider = ethers.getDefaultProvider("matic");
-const poolAddress = "0x357faF5843c7FD7fb4E34FBEabDAc16eabE8a5bc";
+const provider = ethers.getDefaultProvider(process.env.POLYGON_RPC_ENDPOINT);
+const poolAddress = process.env.CONTRACT_WETH_UNIT_UniswapV3Pool;
+
 const poolContract = new ethers.Contract(
   poolAddress,
   IUniswapV3PoolABI,
@@ -85,7 +87,7 @@ async function main() {
     137,
     immutables.token1,
     18,
-    "UNI2",
+    "UNI",
     "Uniswap Protocol"
   );
 
